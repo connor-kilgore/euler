@@ -7,8 +7,8 @@
   (cond (< n 1) nil
         (< n 3) (range 1 (inc n))
         :else (loop [f-sequence [1 2]]
-          (if (>= (count f-sequence) n)
-            f-sequence (recur (append-next-fibonnaci-sequence f-sequence))))))
+                (if (>= (count f-sequence) n)
+                  f-sequence (recur (append-next-fibonnaci-sequence f-sequence))))))
 
 (defn euler-2 [n]
   (reduce (fn [sum f-number] (if (even? f-number) (+ sum f-number) sum))
