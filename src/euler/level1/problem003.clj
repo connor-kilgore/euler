@@ -1,26 +1,17 @@
 (ns euler.level1.problem003)
 
 (defn smallest-prime-factor [n]
-      ; handle edge cases
       (if (< n 2)
         1
-        (do
-          (loop [factor 2]
-                (if (= (mod n factor) 0)
-                  factor
-                  (recur (inc factor)))
-                )
-          )
-        )
-      )
+        (loop [factor 2]
+          (if (= (mod n factor) 0)
+            factor
+            (recur (inc factor))))))
 
 (defn euler-3 [n]
       (loop [n n
-             largestFactor 1]
-            (if (> n 1)
-              (do
-                (recur (/ n (smallest-prime-factor n)) (smallest-prime-factor n))
-                )
-              largestFactor))
-
-      )
+             largest-factor-of-n 1]
+        (if-not (> n 1)
+          largest-factor-of-n
+          (let [factor (smallest-prime-factor n)]
+            (recur (/ n factor) factor)))))

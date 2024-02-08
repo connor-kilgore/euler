@@ -1,4 +1,4 @@
- (ns euler.level1.problem004-spec
+(ns euler.level1.problem004-spec
   (:require
     [speclj.core :refer :all]
     [euler.level1.problem004 :refer :all]))
@@ -8,25 +8,22 @@
 (describe "Euler Problem #4"
 
   (it "checks if number is a palindrome"
-      (should (is-palindrome? 1))
-      (should (is-palindrome? 2))
-      (should (is-palindrome? 121))
-      (should (is-palindrome? 12321))
-      (should (is-palindrome? 123321))
-      (should-not (is-palindrome? 122))
-      (should-not (is-palindrome? 12231221))
-      (should-not (is-palindrome? 12))
-  )
+    (should (is-palindrome? 1))
+    (should (is-palindrome? 2))
+    (should (is-palindrome? 121))
+    (should (is-palindrome? 12321))
+    (should (is-palindrome? 123321))
+    (should-not (is-palindrome? 122))
+    (should-not (is-palindrome? 12231221))
+    (should-not (is-palindrome? 12))
+    )
 
   (it "Solves #4"
-      ; largest 2-digit num
     (should= 9009 (euler-4 99))
-      ; largest 3-digit num
     (should= 906609 (euler-4 999))
-      ; largest 1-digit num
     (should= 9 (euler-4 10))
     (should= 1 (euler-4 1))
-   )
+    )
   )
 
 (run-specs)

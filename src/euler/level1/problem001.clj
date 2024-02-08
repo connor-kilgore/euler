@@ -1,28 +1,11 @@
 (ns euler.level1.problem001)
 
-(defn multiple-of-3? [n]
-      (if (= n 0)
-        false
-        (= (mod n 3) 0))
-      )
-
-(defn multiple-of-5? [n]
-      (if (= n 0)
-        false
-        (= (mod n 5) 0))
-      )
+(defn multiple-of-n? [val n] (if (= val 0) false (zero? (mod val n))))
 
 (defn euler-1 [n]
-      (loop [index 1
-             addedVal 0]
-
-            (if (< index n)
-              (do
-                (if (or (multiple-of-3? index) (multiple-of-5? index))
-                  (recur (inc index) (+ addedVal index))
-                  (recur (inc index) addedVal)
-                )
-              )
-              addedVal)
-      )
-  )
+  (loop [i 1
+         sum-of-multiples 0]
+    (cond (>= i n) sum-of-multiples
+          (or (multiple-of-n? i 3) (multiple-of-n? i 5))
+          (recur (inc i) (+ sum-of-multiples i))
+          :else (recur (inc i) sum-of-multiples))))

@@ -14,15 +14,11 @@
 
 
 (defn is-divisible-by-n-nums? [number n]
-      ; loop n to 0
       (loop [index 0]
-
         (if (divisible-by-num? number index)
-          (do
-            (if (= index n)
-              ; if n reached, must be true
-              true
-              (recur (move-index-towards-n index n))))
+          (if (= index n)
+            true
+            (recur (move-index-towards-n index n)))
           false)))
 
 (defn euler-5 [n]

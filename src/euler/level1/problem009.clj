@@ -8,22 +8,20 @@
   (loop [a 1
          b (+ a 1)]
 
-    (def c (- n a b))
-    (if (is-pythagorean-triplet? a b c)
-      (do
-        (println a b c) (* a b c)
-      )
-      (do
-        (if (< b (quot (- n a) 2))
-          (recur a (inc b))
-          (do
-            (if (< a (quot n 3))
-              (recur (inc a) (+ a 2))
-              nil
+    (let [c (- n a b)]
+      (if (is-pythagorean-triplet? a b c)
+        (* a b c)
+        (do
+          (if (< b (quot (- n a) 2))
+            (recur a (inc b))
+            (do
+              (if (< a (quot n 3))
+                (recur (inc a) (+ a 2))
+                nil
+                )
+              )
             )
           )
-        )
-      )
+        ))
     )
-  )
 )

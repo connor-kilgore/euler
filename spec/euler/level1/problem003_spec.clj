@@ -18,6 +18,7 @@
 
 
   (it "Solves #3"
+       (should= 2 (euler-3 4))
        (should= 13 (euler-3 13))
        (should= 5 (euler-3 10))
        (should= 2 (euler-3 2))
