@@ -5,7 +5,7 @@
 
 ; https://projecteuler.net/problem=3
 
-(describe "Euler Problem #3"
+(describe "How it finds the largest prime-factor of a number"
 
   (it "finds smallest prime factor"
     (should= 1 (smallest-prime-factor 1))
@@ -16,7 +16,8 @@
     (should= 13 (smallest-prime-factor 13)))
 
 
-  (it "Solves #3"
+  (it "chops off the smallest prime factor from n until the remainder is the
+  largest prime-factor"
     (should= 1 (euler-3 0))
     (should= 1 (euler-3 1))
     (should= 1 (euler-3 -1))

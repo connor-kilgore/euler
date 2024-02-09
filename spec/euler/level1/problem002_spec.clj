@@ -5,7 +5,7 @@
 
 ; https://projecteuler.net/problem=2
 
-(describe "Euler Problem #2"
+(describe "How it sums the even numbers in a Fibonnaci sequence up to n layers"
 
   (it "finds the next value in the fibonnaci sequence and appends to coll"
     (should= nil (append-next-fibonnaci-sequence []))
@@ -27,7 +27,7 @@
     (should= [1 2 3 5 8 13 21 34] (get-fibonnaci-sequence-to-n 8))
     )
 
-  (it "Solves #2"
+  (it "gets the sum of every even number in a fibonacci sequence n layers"
     (should= 0 (euler-2 -1))
     (should= 0 (euler-2 0))
     (should= 0 (euler-2 1))
