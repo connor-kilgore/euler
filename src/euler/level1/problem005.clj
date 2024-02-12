@@ -23,5 +23,5 @@
 (defn euler-5 [n]
   (cond (< n 1) nil
         (< n 2) n
-        :else (reduce * (for [[key value] (get-map-with-highest-frequency-vals n)] (int (Math/pow key value))))
-        ))
+        :else (reduce * (for [[key value] (get-map-with-highest-frequency-vals n)]
+                          (int (Math/pow key value))))))
