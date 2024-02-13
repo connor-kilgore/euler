@@ -1,12 +1,8 @@
 (ns euler.level1.problem008)
 
-(defn product-of-vector [vec]
-  (reduce * vec)
-  )
+(defn product-of-vector [vec] (reduce * vec))
 
-(defn out-of-bounds? [n position sub-size]
-  (< (count n) (+ position sub-size))
-  )
+(defn out-of-bounds? [n position sub-size] (< (count n) (+ position sub-size)))
 
 (defn get-lazyseq-products [n position sub-size]
   (if (out-of-bounds? n position sub-size)
