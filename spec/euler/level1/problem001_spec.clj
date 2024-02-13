@@ -28,7 +28,6 @@
     (should= 3 (euler-1 4))
     (should= 8 (euler-1 6))
     (should= 0 (euler-1 -1))
-    (should= 233168 (euler-1 1000)))
-  )
+    (should= 233168 (euler-1 1000))))
 
 (run-specs)

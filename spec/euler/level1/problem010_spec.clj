@@ -7,15 +7,24 @@
 
 (describe "Euler Problem #10"
 
+  (it "mods each value in a supplied coll and returns that as a coll"
+    (should= '(0 2 2) (mod-range 2 (range 2 5)))
+    (should= '() (mod-range 2 (range 2 2)))
+    (should= '(2) (mod-range 2 (range 3 4))))
+
   (it "checks if n is a prime number"
     (should (prime? 1))
     (should (prime? 2))
-    (should (prime? 3))
     (should-not (prime? 4))
     (should-not (prime? -1))
     (should-not (prime? 0))
-    (should (prime? 17))
-  )
+    (should (prime? 17)))
+
+  (it "adds all prime numbers below n"
+    (should= 0 (add-primes-below 1))
+    (should= 0 (add-primes-below 2))
+    (should= 0 (add-primes-below -1))
+    (should= 17 (add-primes-below 10)))
 
   (it "Solves #10"
     (should= 17 (euler-10 10))
@@ -24,9 +33,6 @@
     (should= 0 (euler-10 -1))
     (should= 41 (euler-10 15))
     (should= 76127 (euler-10 1000))
-      ; takes a while to run, leave commented out normally
-      ;(should= 142913828922 (euler-10 2000000))
-    )
-)
+    (should= 142913828922 (euler-10 2000000))))
 
 (run-specs)

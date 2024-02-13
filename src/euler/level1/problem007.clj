@@ -12,5 +12,4 @@
   (if (prime? (inc n)) (inc n) (find-next-prime (inc n))))
 
 (defn euler-7 [n]
-  (cond (< n 1) 0
-        :else (last (take n (iterate find-next-prime 2)))))
+  (if (< n 1) 0 (last (take n (iterate find-next-prime 2)))))
