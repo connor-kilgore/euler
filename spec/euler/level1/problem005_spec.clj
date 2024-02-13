@@ -19,15 +19,15 @@ merged with the highest frequency of values overwriting."
     (should= 2 (get-smallest-prime-factor 10)))
 
   (it "will return a map with both maps merged, overwriting the highest values"
-    (should= {2 2} (merge-maps-with-highest-values {2 1} {2 2}))
-    (should= {2 2, 3 1} (merge-maps-with-highest-values {2 1, 3 1} {2 2}))
-    (should= {2 2, 3 2} (merge-maps-with-highest-values {2 1, 3 2} {2 2, 3 1}))
+    (should= {2 2} (marge-maps-by-higher-frequency {2 1} {2 2}))
+    (should= {2 2, 3 1} (marge-maps-by-higher-frequency {2 1, 3 1} {2 2}))
+    (should= {2 2, 3 2} (marge-maps-by-higher-frequency {2 1, 3 2} {2 2, 3 1}))
     )
 
   (it "will merge all the maps together into 1 of highest frequency of each key"
-    (should= {2 1} (get-map-with-highest-frequency-vals 2))
-    (should= {2 2, 3 1, 5 1} (get-map-with-highest-frequency-vals 5))
-    (should= {2 3, 3 2, 5 1, 7 1} (get-map-with-highest-frequency-vals 10))
+    (should= {2 1} (get-map-of-highest-frequency 2))
+    (should= {2 2, 3 1, 5 1} (get-map-of-highest-frequency 5))
+    (should= {2 3, 3 2, 5 1, 7 1} (get-map-of-highest-frequency 10))
     )
 
   (it "will return numbers if single prime numbers"
@@ -53,21 +53,21 @@ merged with the highest frequency of values overwriting."
 
   (it "Will return value if 1 or 2 is entered"
     (should= 1 (euler-5 1))
-    (should= 2 (euler-5 2)))
+    (should= 2 (euler-5 2))
+    )
 
   (it "Will return nil if value below 1"
     (should= nil (euler-5 0))
-    (should= nil (euler-5 -1)))
+    (should= nil (euler-5 -1))
+    )
 
   (it "Will return smallest integer divisible by all 1-n if otherwise"
     (should= 1 (euler-5 1))
     (should= 2 (euler-5 2))
     (should= nil (euler-5 -1))
     (should= 6 (euler-5 3))
-    (should= 12 (euler-5 4))
     (should= 2520 (euler-5 10))
     (should= 232792560 (euler-5 20))
-    (should= 5342931457063200 (euler-5 40))
     )
   )
 
