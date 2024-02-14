@@ -5,7 +5,12 @@
 
 ; https://projecteuler.net/problem=11
 
-(def grid [[8 2 22 97 38 15 0 40 0 75 4 5 7 78 52 12 50 77 91 8]
+(def grid2 [[1 2 3 4]
+            [5 6 7 8]
+            [9 10 11 12]
+            [13 14 15 16]])
+
+(def grid1 [[8 2 22 97 38 15 0 40 0 75 4 5 7 78 52 12 50 77 91 8]
            [49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 4 56 62 0]
            [81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 3 49 13 36 65]
            [52 70 95 23 4 60 11 42 69 24 68 56 1 32 56 71 37 2 36 91]
@@ -29,62 +34,64 @@
 (describe "how it will return the greatest product sequence in the 20x20 grid"
 
   (it "will return the number on the grid at a given coordinate"
-    (should= 8 (get-grid-value grid 0 0))
-    (should= 48 (get-grid-value grid 19 19))
-    (should= 94 (get-grid-value grid 5 13)))
+    (should= 8 (get-grid-value grid1 0 0))
+    (should= 48 (get-grid-value grid1 19 19))
+    (should= 94 (get-grid-value grid1 5 13)))
 
   (it "will make a list of 4 values moving to the right at any point
   on the grid"
-    (should= nil (get-right-seq grid 17 0))
-    (should= '(8 2 22 97) (get-right-seq grid 0 0))
-    (should= '(94 47 69 28) (get-right-seq grid 5 13)))
+    (should= nil (get-right-seq grid1 17 0))
+    (should= '(8 2 22 97) (get-right-seq grid1 0 0))
+    (should= '(94 47 69 28) (get-right-seq grid1 5 13)))
 
   (it "will make a list of 4 values moving to the left at any point
   on the grid"
-    (should= nil (get-left-seq grid 0 0))
-    (should= '(38 97 22 2) (get-left-seq grid 4 0)))
+    (should= nil (get-left-seq grid1 0 0))
+    (should= '(38 97 22 2) (get-left-seq grid1 4 0)))
 
   (it "will make a list of 4 values moving down at any point
   on the grid"
-    (should= nil (get-down-seq grid 0 18))
-    (should= '(8 49 81 52) (get-down-seq grid 0 0)))
+    (should= nil (get-down-seq grid1 0 18))
+    (should= '(8 49 81 52) (get-down-seq grid1 0 0)))
 
   (it "will make a list of 4 values moving up at any point
   on the grid"
-    (should= nil (get-up-seq grid 0 0))
-    (should= '(78 21 24 67) (get-up-seq grid 0 10)))
+    (should= nil (get-up-seq grid1 0 0))
+    (should= '(78 21 24 67) (get-up-seq grid1 0 10)))
 
   (it "will make a list of 4 values moving up to the right at any point
   on the grid"
-    (should= nil (get-right-up-seq grid 18 0))
-    (should= nil (get-right-up-seq grid 0 0))
-    (should= '(20 69 16 87) (get-right-up-seq grid 0 18)))
+    (should= nil (get-right-up-seq grid1 18 0))
+    (should= nil (get-right-up-seq grid1 0 0))
+    (should= '(20 69 16 87) (get-right-up-seq grid1 0 18)))
 
   (it "will make a list of 4 values moving up to the left at any point
   on the grid"
-    (should= nil (get-left-up-seq grid 0 0))
-    (should= '(48 5 4 40) (get-left-up-seq grid 19 19)))
+    (should= nil (get-left-up-seq grid1 0 0))
+    (should= '(48 5 4 40) (get-left-up-seq grid1 19 19)))
 
   (it "will make a list of 4 values moving down to the left at any point
   on the grid"
-    (should= nil (get-left-down-seq grid 0 0))
-    (should= nil (get-left-down-seq grid 10 19))
-    (should= '(8 62 13 37) (get-left-down-seq grid 19 0)))
+    (should= nil (get-left-down-seq grid1 0 0))
+    (should= nil (get-left-down-seq grid1 10 19))
+    (should= '(8 62 13 37) (get-left-down-seq grid1 19 0)))
 
   (it "will make a list of 4 values moving down to the right at any point
   on the grid"
-    (should= nil (get-right-down-seq grid 18 0))
-    (should= nil (get-right-down-seq grid 0 18))
-    (should= '(8 49 31 23) (get-right-down-seq grid 0 0)))
+    (should= nil (get-right-down-seq grid1 18 0))
+    (should= nil (get-right-down-seq grid1 0 18))
+    (should= '(8 49 31 23) (get-right-down-seq grid1 0 0)))
 
   (it "will check all possible sequences at a given coordinate and
   return the largest product of those sequences"
-    (should= 1651104 (get-largest-seq-product grid 0 0))
-    (should= 952740 (get-largest-seq-product grid 5 5))
-    (should= 5438256 (get-largest-seq-product grid 19 19)))
+    (should= 1651104 (get-largest-seq-product grid1 0 0))
+    (should= 952740 (get-largest-seq-product grid1 5 5))
+    (should= 5438256 (get-largest-seq-product grid1 19 19)))
 
   (it "will get the largest sequence product on the whole grid"
-    (should= 70600674(euler-11 grid))))
+    (should= 70600674 (euler-11 grid1))
+    (should= 43680 (euler-11 grid2)))
+  )
 
 
 (run-specs)

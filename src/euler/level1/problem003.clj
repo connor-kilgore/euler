@@ -5,6 +5,6 @@
 
 (defn largest-prime-factor [n]
   (let [factor (smallest-prime-factor n)]
-  (cond (< n 2) nil
-        (= factor n) factor
-        :else (largest-prime-factor (/ n factor)))))
+    (cond (< n 2) nil
+          (= factor n) factor
+          :else (largest-prime-factor (/ n factor)))))

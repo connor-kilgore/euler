@@ -4,4 +4,4 @@
 
 (defn euler-1 [n]
   (reduce (fn [sum i] (if (or (multiple-of-n? i 3) (multiple-of-n? i 5)) (+ sum i) sum))
-    0 (range n)))
+          0 (range n)))

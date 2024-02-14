@@ -12,6 +12,4 @@
 
 (defn euler-8 [n sub-size]
   (let [products (get-lazyseq-products n 0 sub-size)]
-    (if (empty? products)
-      nil
-      (apply max (get-lazyseq-products n 0 sub-size)))))
+    (if (empty? products) nil (apply max (get-lazyseq-products n 0 sub-size)))))

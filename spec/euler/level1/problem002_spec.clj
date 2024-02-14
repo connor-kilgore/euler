@@ -14,9 +14,9 @@
     (should= [1 2 3] (append-next-fibonnaci-sequence [1 2]))
     (should= [1 2 3 5] (append-next-fibonnaci-sequence [1 2 3])))
 
-  (it "returns nil if given invalid n"
-    (should= nil (get-fibonnaci-sequence-to-n 0))
-    (should= nil (get-fibonnaci-sequence-to-n -1)))
+  (it "returns empty coll if given invalid n"
+    (should= [] (get-fibonnaci-sequence-to-n 0))
+    (should= [] (get-fibonnaci-sequence-to-n -1)))
   (it "returns fibonacci sequence up to n if given a valid n"
     (should= [1] (get-fibonnaci-sequence-to-n 1))
     (should= [1 2] (get-fibonnaci-sequence-to-n 2))

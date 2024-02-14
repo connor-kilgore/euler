@@ -1,21 +1,12 @@
 (ns euler.level1.problem004)
 
 (defn is-palindrome? [n]
-  (cond (<= (count n) 1) true
-        (= (first n) (last n)) (is-palindrome? (subs n 1 (dec (count n))))
+  (cond (<= (count (str n)) 1) true
+        (= (first (str n)) (last (str n))) (is-palindrome? (subs (str n) 1 (dec (count (str n)))))
         :else false))
 
-(defn largest-palindromic-factor? [n largest-factor]
-  (and (is-palindrome? (str n)) (> n largest-factor))
-  )
+(defn get-next-palindrome [n]
+  (if (is-palindrome? (str n)) n (get-next-palindrome (inc n))))
 
 (defn euler-4 [n]
-  (loop [inner n
-         outer n
-         largest-factor 0]
-    (let [factor (* inner outer)]
-      (cond (< n 0) nil
-            (= outer 0) largest-factor
-            (= inner 0) (recur (dec outer) (dec outer) largest-factor)
-            (largest-palindromic-factor? factor largest-factor) (recur (dec inner) outer factor)
-            :else (recur (dec inner) outer largest-factor)))))
+  (if (zero? n) 0 (reduce max (filter is-palindrome? (map #(* (inc (mod % n)) (inc (quot % n))) (take (* n n) (iterate inc 0)))))))

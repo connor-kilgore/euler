@@ -54,6 +54,6 @@
        (reduce * (get-left-down-seq grid x y))))
 
 (defn euler-11 [grid]
-    (reduce max (map #(get-largest-seq-product grid (mod % (count (first grid))) (quot % (count grid)))
-                     (take (* (count grid) (count (first grid))) (iterate inc 0)))))
+  (reduce max (map #(get-largest-seq-product grid (mod % (count (first grid))) (quot % (count grid)))
+                   (take (* (count grid) (count (first grid))) (iterate inc 0)))))
 
